@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Auto Evaluation",
+  "version": "1.0.0",
+  "description": "Automated course evaluation tool",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://sis.pup.edu.ph/*", "*://*.pup.edu.ph/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
