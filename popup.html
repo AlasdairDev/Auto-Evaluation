@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      width: 340px;
+      min-height: 460px;
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #0a0a0a;
+      color: #e8e8e8;
+      padding: 24px;
+      position: relative;
+    }
+    
+    /* Subtle gradient accent */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #646cff, transparent);
+    }
+    
+    .header {
+      margin-bottom: 28px;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    
+    .logo-icon {
+      width: 6px;
+      height: 6px;
+      background: #646cff;
+      border-radius: 1px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    
+    h1 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+    }
+    
+    .version {
+      font-size: 11px;
+      color: #646464;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+    
+    .section {
+      margin-bottom: 24px;
+    }
+    
+    .section-label {
+      font-size: 11px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .section-label::before {
+      content: '';
+      width: 3px;
+      height: 3px;
+      background: #646cff;
+      border-radius: 50%;
+    }
+    
+    select {
+      width: 100%;
+      padding: 12px 14px;
+      background: #111111;
+      border: 1px solid #222222;
+      border-radius: 6px;
+      color: #e8e8e8;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23646464' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+    }
+    
+    select:hover {
+      border-color: #333333;
+      background: #151515;
+    }
+    
+    select:focus {
+      outline: none;
+      border-color: #646cff;
+      background: #151515;
+    }
+    
+    option {
+      background: #111111;
+      color: #e8e8e8;
+      padding: 12px;
+    }
+    
+    .info-box {
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: #111111;
+      border-left: 2px solid #646cff;
+      border-radius: 4px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #a8a8a8;
+      font-weight: 300;
+    }
+    
+    .info-box code {
+      font-family: 'JetBrains Mono', monospace;
+      color: #646cff;
+      font-size: 11px;
+    }
+    
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #646cff;
+      border: none;
+      border-radius: 6px;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      letter-spacing: 0.3px;
+    }
+    
+    button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.6s;
+    }
+    
+    button:hover {
+      background: #535bf2;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(100, 108, 255, 0.3);
+    }
+    
+    button:hover::before {
+      left: 100%;
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    button:disabled {
+      background: #1a1a1a;
+      color: #464646;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    
+    .status {
+      margin-top: 16px;
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 400;
+      display: none;
+      border-left: 2px solid;
+      animation: slideUp 0.3s ease;
+    }
+    
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .status.success {
+      background: rgba(34, 197, 94, 0.1);
+      border-color: #22c55e;
+      color: #22c55e;
+      display: block;
+    }
+    
+    .status.error {
+      background: rgba(239, 68, 68, 0.1);
+      border-color: #ef4444;
+      color: #ef4444;
+      display: block;
+    }
+    
+    .status.info {
+      background: rgba(100, 108, 255, 0.1);
+      border-color: #646cff;
+      color: #646cff;
+      display: block;
+    }
+    
+    .footer {
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid #1a1a1a;
+      text-align: center;
+      font-size: 10px;
+      color: #464646;
+      letter-spacing: 0.5px;
+    }
+    
+    /* Minimal decorative elements */
+    .corner-dot {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #1a1a1a;
+      border-radius: 50%;
+    }
+    
+    .corner-dot.tl {
+      top: 16px;
+      left: 16px;
+    }
+    
+    .corner-dot.tr {
+      top: 16px;
+      right: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="corner-dot tl"></div>
+  <div class="corner-dot tr"></div>
+  
+  <div class="header">
+    <div class="logo">
+      <div class="logo-icon"></div>
+      <h1>Auto Evaluation</h1>
+    </div>
+    <div class="version">v1.0.0</div>
+  </div>
+  
+  <div class="section">
+    <label class="section-label" for="scale">Rating Scale</label>
+    <select id="scale">
+      <option value="5">5 — Always manifested</option>
+      <option value="4" selected>4 — Often manifested</option>
+      <option value="3">3 — Sometimes manifested</option>
+      <option value="2">2 — Seldom manifested</option>
+      <option value="1">1 — Never manifested</option>
+    </select>
+    <div class="info-box" id="scaleInfo">
+      Evident most of the time <code>61–90%</code>
+    </div>
+  </div>
+
+  <button id="evaluateBtn">Run Evaluation</button>
+  
+  <div class="status" id="status"></div>
+  
+  <div class="footer">
+    crafted with care
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
