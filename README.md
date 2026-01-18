@@ -43,16 +43,6 @@ A minimal Chrome extension for automated course evaluations.
 | 2 | Seldom manifested | 11–30% |
 | 1 | Never manifested | 0–10% |
 
-## File Structure
-
-```
-auto-evaluation/
-├── manifest.json       # Extension configuration
-├── popup.html         # User interface
-├── popup.js           # UI logic
-├── content.js         # Page interaction script
-└── README.md          # Documentation
-```
 
 ## Troubleshooting
 
@@ -79,14 +69,7 @@ Built with vanilla JavaScript. No dependencies required.
 3. Click the refresh icon on the extension card
 4. Changes take effect immediately
 
-## License
-
-MIT License - feel free to modify and distribute.
-
-## Contributing
-
-Issues and pull requests are welcome.
 
 ---
 
-**v1.0.0** — crafted with care
+**v1.0.0** — ni alasdair
