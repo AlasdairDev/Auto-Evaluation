@@ -1,9 +1,9 @@
 const scaleDescriptions = {
-  '5': 'Evident in nearly all situations <code>91–100%</code>',
-  '4': 'Evident most of the time <code>61–90%</code>',
-  '3': 'Evident about half the time <code>31–60%</code>',
-  '2': 'Infrequently demonstrated <code>11–30%</code>',
-  '1': 'Seldom demonstrated <code>0–10%</code>'
+  '5': 'Evident in nearly all situations <code>91-100%</code>',
+  '4': 'Evident most of the time <code>61-90%</code>',
+  '3': 'Evident about half the time <code>31-60%</code>',
+  '2': 'Infrequently demonstrated <code>11-30%</code>',
+  '1': 'Seldom demonstrated <code>0-10%</code>'
 };
 
 document.getElementById('scale').addEventListener('change', function() {
@@ -36,7 +36,7 @@ document.getElementById('evaluateBtn').addEventListener('click', async () => {
         statusDiv.textContent = 'Refresh page and try again';
       } else if (response.success) {
         statusDiv.className = 'status success';
-        statusDiv.textContent = `Complete — ${response.count} items filled`;
+        statusDiv.textContent = `Complete: ${response.count} items filled`;
       } else {
         statusDiv.className = 'status error';
         statusDiv.textContent = response.message;
