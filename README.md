@@ -37,11 +37,11 @@ A minimal Chrome extension for automated course evaluations.
 
 | Scale | Description | Range |
 |-------|-------------|-------|
-| 5 | Always manifested | 91–100% |
-| 4 | Often manifested | 61–90% |
-| 3 | Sometimes manifested | 31–60% |
-| 2 | Seldom manifested | 11–30% |
-| 1 | Never manifested | 0–10% |
+| 5 | Always manifested | 91-100% |
+| 4 | Often manifested | 61-90% |
+| 3 | Sometimes manifested | 31-60% |
+| 2 | Seldom manifested | 11-30% |
+| 1 | Never manifested | 0-10% |
 
 
 ## Troubleshooting
@@ -72,4 +72,4 @@ Built with vanilla JavaScript. No dependencies required.
 
 ---
 
-**v1.0.0** — ni alasdair
+**v1.0.0**, ni alasdair
